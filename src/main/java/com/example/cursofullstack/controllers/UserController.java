@@ -6,6 +6,7 @@ import com.example.cursofullstack.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -16,15 +17,20 @@ public class UserController {
     @Autowired
     private UserDAO userDao ;
 
-    @RequestMapping(value = "user/{id}")
+    @RequestMapping(value = "api/users/{id}")
     public User getUser(@PathVariable Long id){
         User user = new User();
         user.setName("Juan");
         return user;
     }
 
-    @RequestMapping(value = "users")
+    @RequestMapping(value = "api/users")
     public List<User> getUsers(){
         return userDao.getUsers();
+    }
+
+    @RequestMapping(value = "api/users/{id}", method = RequestMethod.DELETE)
+    public void removeUser(@PathVariable Long id){
+        userDao.remove(id);
     }
 }
