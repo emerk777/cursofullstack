@@ -26,6 +26,5 @@ async function registerUserFE(){
     },
     body: JSON.stringify(datos)
   });
-  const users = await request.json();
 
 }
