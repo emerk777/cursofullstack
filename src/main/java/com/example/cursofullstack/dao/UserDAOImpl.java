@@ -27,4 +27,9 @@ public class UserDAOImpl implements UserDAO {
         entityManager.remove(user);
     }
 
+    @Override
+    public void register(User user) {
+        entityManager.merge(user);
+    }
+
 }

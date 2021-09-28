@@ -4,10 +4,7 @@ package com.example.cursofullstack.controllers;
 import com.example.cursofullstack.dao.UserDAO;
 import com.example.cursofullstack.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,5 +29,11 @@ public class UserController {
     @RequestMapping(value = "api/users/{id}", method = RequestMethod.DELETE)
     public void removeUser(@PathVariable Long id){
         userDao.remove(id);
+    }
+
+    @RequestMapping(value = "api/users", method = RequestMethod.POST)
+    public void registerUser(@RequestBody User user){
+
+        userDao.register(user);
     }
 }
