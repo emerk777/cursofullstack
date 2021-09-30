@@ -12,14 +12,7 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    private UserDAO userDao ;
-
-    @RequestMapping(value = "api/users/{id}")
-    public User getUser(@PathVariable Long id){
-        User user = new User();
-        user.setName("Juan");
-        return user;
-    }
+    private UserDAO userDao;
 
     @RequestMapping(value = "api/users")
     public List<User> getUsers(){
