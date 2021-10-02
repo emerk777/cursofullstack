@@ -18,7 +18,7 @@ public class AuthController {
     @RequestMapping(value = "api/login", method = RequestMethod.POST)
     public String login(@RequestBody User user){
 
-        return userDao.verifyUserCredentials(user) ? "Ok" : "Fail";
+        return userDao.verifyUserCredentials(user) ? "OK" : "Fail";
 
     }
 
